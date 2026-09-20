@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chácara da Pyssuta | Lazer e Eventos</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        nature: {
+                            50: '#f4f7f4',
+                            100: '#e5ede5',
+                            600: '#2e6f40',
+                            700: '#235631',
+                            800: '#1b4226',
+                            900: '#13311b',
+                        },
+                        earth: {
+                            DEFAULT: '#8B5A2B',
+                            light: '#A67C52',
+                            dark: '#5C3A21'
+                        },
+                        sand: '#FDFBF7'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #FDFBF7;
+            color: #2D3748;
+        }
+        .hero-bg {
+            background: linear-gradient(rgba(19, 49, 27, 0.65), rgba(27, 66, 38, 0.75)), url('https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
+</head>
+<body class="bg-sand antialiased selection:bg-nature-600 selection:text-white">
+
+    <!-- Navbar Fixa -->
+    <header id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-nature-900/95 backdrop-blur-md shadow-lg text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <a href="#inicio" class="flex items-center space-x-3 group">
+                <div class="w-12 h-12 rounded-full bg-earth flex items-center justify-center border-2 border-yellow-500 shadow-md transform group-hover:scale-105 transition">
+                    <i class="fa-solid fa-tree text-yellow-400 text-xl"></i>
+                </div>
+                <div>
+                    <span class="font-serif text-xl sm:text-2xl font-bold tracking-wide text-yellow-400 block leading-tight">Chácara da Pyssuta</span>
+                    <span class="text-xs text-nature-100 uppercase tracking-widest block">Eventos • Confraternizações</span>
+                </div>
+            </a>
+
+            <!-- Desktop Menu -->
+            <nav class="hidden md:flex items-center space-x-8 font-medium">
+                <a href="#inicio" class="hover:text-yellow-400 transition">Início</a>
+                <a href="#sobre" class="hover:text-yellow-400 transition">A Chácara</a>
+                <a href="#comodidades" class="hover:text-yellow-400 transition">Comodidades</a>
+                <a href="#galeria" class="hover:text-yellow-400 transition">Galeria</a>
+                <a href="#contato" class="bg-earth hover:bg-earth-dark text-white px-5 py-2.5 rounded-full shadow-md font-semibold transition transform hover:-translate-y-0.5">Reservar Agora</a>
+            </nav>
+
+            <!-- Mobile Menu Button -->
+            <button id="menu-btn" class="md:hidden text-white focus:outline-none text-2xl p-2">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-nature-900 border-t border-nature-800 px-6 py-4 space-y-4 shadow-xl">
+            <a href="#inicio" class="block hover:text-yellow-400 font-medium py-1">Início</a>
+            <a href="#sobre" class="block hover:text-yellow-400 font-medium py-1">A Chácara</a>
+            <a href="#comodidades" class="block hover:text-yellow-400 font-medium py-1">Comodidades</a>
+            <a href="#galeria" class="block hover:text-yellow-400 font-medium py-1">Galeria</a>
+            <a href="#contato" class="block text-center bg-earth text-white py-3 rounded-xl font-semibold shadow">Reservar Agora</a>
+        </div>
+    </header>
+
+    <!-- Seção Início (Hero) -->
+    <section id="inicio" class="hero-bg min-h-screen flex items-center justify-center text-center px-4 pt-20">
+        <div class="max-w-4xl mx-auto text-white space-y-6">
+            <span class="inline-block bg-yellow-500/20 text-yellow-300 border border-yellow-400/40 px-4 py-1.5 rounded-full text-sm font-semibold uppercase tracking-wider backdrop-blur-sm">
+                Seu refúgio de lazer e descanso
+            </span>
+            <h1 class="font-serif text-4xl sm:text-6xl lg:text-7xl font-bold leading-tight drop-shadow-md">
+                Chácara da Pyssuta
+            </h1>
+            <p class="text-lg sm:text-xl text-gray-200 max-w-2xl mx-auto font-light leading-relaxed">
+                Um espaço completo com <strong class="text-yellow-300 font-semibold">1.000 m²</strong> estruturado perfeitamente para eventos, confraternizações, aniversários e momentos inesquecíveis com quem você ama.
+            </p>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
+                <a href="#contato" class="w-full sm:w-auto bg-yellow-500 hover:bg-yellow-400 text-nature-900 font-bold px-8 py-4 rounded-xl shadow-xl transition transform hover:-translate-y-1 text-center flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-calendar-check"></i> Verificar Disponibilidade
+                </a>
+                <a href="#sobre" class="w-full sm:w-auto bg-white/10 hover:bg-white/20 text-white border border-white/30 backdrop-blur-md font-semibold px-8 py-4 rounded-xl transition text-center flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-circle-info"></i> Conhecer Estrutura
+                </a>
+            </div>
+
+            <!-- Quick Badges -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 pt-10 border-t border-white/10 max-w-3xl mx-auto">
+                <div class="flex items-center justify-center gap-2 text-sm text-gray-200 bg-black/20 p-3 rounded-lg backdrop-blur-sm">
+                    <i class="fa-solid fa-water-ladder text-yellow-400"></i> Piscina Adulta & Infantil
+                </div>
+                <div class="flex items-center justify-center gap-2 text-sm text-gray-200 bg-black/20 p-3 rounded-lg backdrop-blur-sm">
+                    <i class="fa-solid fa-fire-burner text-yellow-400"></i> Área de Churrasqueira
+                </div>
+                <div class="flex items-center justify-center gap-2 text-sm text-gray-200 bg-black/20 p-3 rounded-lg backdrop-blur-sm">
+                    <i class="fa-solid fa-snowflake text-yellow-400"></i> Quartos com Ar-Condicionado
+                </div>
+                <div class="flex items-center justify-center gap-2 text-sm text-gray-200 bg-black/20 p-3 rounded-lg backdrop-blur-sm">
+                    <i class="fa-solid fa-car text-yellow-400"></i> Estacionamento Próprio
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção A Chácara -->
+    <section id="sobre" class="py-20 bg-sand px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div class="space-y-6">
+                <span class="text-nature-600 font-semibold tracking-wider uppercase text-sm">Sobre o Espaço</span>
+                <h2 class="font-serif text-3xl sm:text-4xl font-bold text-nature-900 leading-tight">
+                    1.000 m² de puro lazer, conforto e natureza para você
+                </h2>
+                <p class="text-gray-600 leading-relaxed text-lg">
+                    A <strong class="text-nature-800">Chácara da Pyssuta</strong> foi planejada para oferecer momentos de total descontração e bem-estar. Em uma área ampla de 1000 m², unimos a tranquilidade do verde com comodidades modernas para garantir que sua estadia ou evento seja perfeito.
+                </p>
+                <p class="text-gray-600 leading-relaxed">
+                    Seja para celebrar um aniversário especial, reunir a família em um fim de semana inesquecível ou realizar uma confraternização corporativa, nossa infraestrutura está pronta para atender com total comodidade e segurança.
+                </p>
+                
+                <div class="grid grid-cols-2 gap-6 pt-4">
+                    <div class="bg-white p-5 rounded-2xl shadow-sm border border-gray-100">
+                        <div class="text-3xl font-bold text-nature-700 font-serif mb-1">1.000 m²</div>
+                        <div class="text-sm text-gray-500">Área total planejada para lazer e diversão</div>
+                    </div>
+                    <div class="bg-white p-5 rounded-2xl shadow-sm border border-gray-100">
+                        <div class="text-3xl font-bold text-earth font-serif mb-1">100%</div>
+                        <div class="text-sm text-gray-500">Privacidade, conforto e segurança</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="relative">
+                <div class="absolute -inset-4 bg-nature-600/20 rounded-3xl transform rotate-2"></div>
+                <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80" alt="Chácara da Pyssuta Área de Lazer" class="relative rounded-2xl shadow-2xl w-full h-[450px] object-cover">
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção Comodidades -->
+    <section id="comodidades" class="py-20 bg-nature-50 px-4 sm:px-6 lg:px-8 border-y border-nature-100">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                <span class="text-nature-600 font-semibold tracking-wider uppercase text-sm">Estrutura Completa</span>
+                <h2 class="font-serif text-3xl sm:text-4xl font-bold text-nature-900">Tudo o que você precisa para o seu conforto</h2>
+                <p class="text-gray-600 text-lg">Conheça os principais atrativos que preparamos para tornar sua estadia inesquecível.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Card 1: Piscinas -->
+                <div class="bg-white rounded-2xl p-8 shadow-md hover:shadow-xl transition transform hover:-translate-y-1 border border-gray-100 text-center group">
+                    <div class="w-16 h-16 bg-nature-100 text-nature-700 rounded-2xl flex items-center justify-center mx-auto mb-6 text-2xl group-hover:bg-nature-700 group-hover:text-white transition">
+                        <i class="fa-solid fa-water-ladder"></i>
+                    </div>
+                    <h3 class="font-serif text-xl font-bold text-nature-900 mb-3">Piscinas Adulto & Infantil</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Área de banho completa com piscina adulta espaçosa e piscina infantil segura para a diversão de toda a família.
+                    </p>
+                </div>
+
+                <!-- Card 2: Churrasqueira -->
+                <div class="bg-white rounded-2xl p-8 shadow-md hover:shadow-xl transition transform hover:-translate-y-1 border border-gray-100 text-center group">
+                    <div class="w-16 h-16 bg-amber-100 text-earth rounded-2xl flex items-center justify-center mx-auto mb-6 text-2xl group-hover:bg-earth group-hover:text-white transition">
+                        <i class="fa-solid fa-fire-burner"></i>
+                    </div>
+                    <h3 class="font-serif text-xl font-bold text-nature-900 mb-3">Churrasqueira Completa</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Espaço gourmet equipado com churrasqueira, pia e bancada para preparar aquele churrasco especial com os amigos.
+                    </p>
+                </div>
+
+                <!-- Card 3: Acomodações -->
+                <div class="bg-white rounded-2xl p-8 shadow-md hover:shadow-xl transition transform hover:-translate-y-1 border border-gray-100 text-center group">
+                    <div class="w-16 h-16 bg-blue-100 text-blue-700 rounded-2xl flex items-center justify-center mx-auto mb-6 text-2xl group-hover:bg-blue-700 group-hover:text-white transition">
+                        <i class="fa-solid fa-bed"></i>
+                    </div>
+                    <h3 class="font-serif text-xl font-bold text-nature-900 mb-3">Acomodações Confortáveis</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Quartos aconchegantes com camas confortáveis, banheiros privativos e ar-condicionado para garantir o seu descanso.
+                    </p>
+                </div>
+
+                <!-- Card 4: Estacionamento -->
+                <div class="bg-white rounded-2xl p-8 shadow-md hover:shadow-xl transition transform hover:-translate-y-1 border border-gray-100 text-center group">
+                    <div class="w-16 h-16 bg-green-100 text-green-700 rounded-2xl flex items-center justify-center mx-auto mb-6 text-2xl group-hover:bg-green-700 group-hover:text-white transition">
+                        <i class="fa-solid fa-car"></i>
+                    </div>
+                    <h3 class="font-serif text-xl font-bold text-nature-900 mb-3">Estacionamento Próprio</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Amplo espaço interno de estacionamento privativo para total comodidade e segurança dos veículos dos convidados.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção Galeria de Fotos -->
+    <section id="galeria" class="py-20 bg-sand px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                <span class="text-nature-600 font-semibold tracking-wider uppercase text-sm">Nossos Registros</span>
+                <h2 class="font-serif text-3xl sm:text-4xl font-bold text-nature-900">Galeria de Fotos</h2>
+                <p class="text-gray-600 text-lg">Explore os cantinhos acolhedores e a estrutura de lazer da Chácara da Pyssuta.</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Photo 1 -->
+                <div class="relative overflow-hidden rounded-2xl shadow-lg group h-72">
+                    <img src="https://images.unsplash.com/photo-1575429198097-0414ec08e8cd?auto=format&fit=crop&w=800&q=80" alt="Piscina da Chácara" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-6">
+                        <span class="text-white font-serif text-lg font-medium"><i class="fa-solid fa-water-ladder text-yellow-400 mr-2"></i> Piscina e Área Externa</span>
+                    </div>
+                </div>
+
+                <!-- Photo 2 -->
+                <div class="relative overflow-hidden rounded-2xl shadow-lg group h-72">
+                    <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=800&q=80" alt="Área de Churrasqueira" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-6">
+                        <span class="text-white font-serif text-lg font-medium"><i class="fa-solid fa-fire-burner text-yellow-400 mr-2"></i> Churrasqueira Gourmet</span>
+                    </div>
+                </div>
+
+                <!-- Photo 3 -->
+                <div class="relative overflow-hidden rounded-2xl shadow-lg group h-72">
+                    <img src="https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=800&q=80" alt="Quarto com Ar Condicionado" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-6">
+                        <span class="text-white font-serif text-lg font-medium"><i class="fa-solid fa-bed text-yellow-400 mr-2"></i> Acomodações Climatizadas</span>
+                    </div>
+                </div>
+
+                <!-- Photo 4 -->
+                <div class="relative overflow-hidden rounded-2xl shadow-lg group h-72">
+                    <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80" alt="Área verde" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-6">
+                        <span class="text-white font-serif text-lg font-medium"><i class="fa-solid fa-tree text-yellow-400 mr-2"></i> 1.000 m² de Área Verde</span>
+                    </div>
+                </div>
+
+                <!-- Photo 5 -->
+                <div class="relative overflow-hidden rounded-2xl shadow-lg group h-72">
+                    <img src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=800&q=80" alt="Espaço para Eventos" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-6">
+                        <span class="text-white font-serif text-lg font-medium"><i class="fa-solid fa-glass-cheers text-yellow-400 mr-2"></i> Espaço para Confraternizações</span>
+                    </div>
+                </div>
+
+                <!-- Photo 6 -->
+                <div class="relative overflow-hidden rounded-2xl shadow-lg group h-72">
+                    <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=800&q=80" alt="Lazer ao ar livre" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-6">
+                        <span class="text-white font-serif text-lg font-medium"><i class="fa-solid fa-sun text-yellow-400 mr-2"></i> Momentos de Lazer</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção Contato / Reservas -->
+    <section id="contato" class="py-20 bg-nature-900 text-white px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#e5ede5_1px,transparent_1px)] [background-size:16px_16px]"></div>
+        
+        <div class="max-w-7xl mx-auto relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                
+                <!-- Informações de Contato -->
+                <div class="space-y-8">
+                    <div>
+                        <span class="text-yellow-400 font-semibold tracking-wider uppercase text-sm">Fale Conosco</span>
+                        <h2 class="font-serif text-3xl sm:text-4xl font-bold mt-2">Reserve sua data ou tire suas dúvidas</h2>
+                        <p class="text-gray-300 mt-3 text-lg leading-relaxed">
+                            Entre em contato para consultar valores, pacotes de finais de semana, feriados ou disponibilidade para eventos.
+                        </p>
+                    </div>
+
+                    <div class="space-y-6">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 bg-nature-800 text-yellow-400 rounded-xl flex items-center justify-center shrink-0 border border-nature-700">
+                                <i class="fa-solid fa-phone text-lg"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-200">Telefone / WhatsApp</h4>
+                                <p class="text-yellow-400 font-medium text-lg">(44) 99999-9999</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 bg-nature-800 text-yellow-400 rounded-xl flex items-center justify-center shrink-0 border border-nature-700">
+                                <i class="fa-solid fa-envelope text-lg"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-200">E-mail</h4>
+                                <p class="text-gray-300">contato@chacaradapyssuta.com.br</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 bg-nature-800 text-yellow-400 rounded-xl flex items-center justify-center shrink-0 border border-nature-700">
+                                <i class="fa-solid fa-location-dot text-lg"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-200">Localização</h4>
+                                <p class="text-gray-300">Área rural / Urbana reservada — Mandaguari e Região, PR</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Social Media Links -->
+                    <div class="pt-4 border-t border-nature-800 flex space-x-4">
+                        <a href="#" class="w-10 h-10 bg-nature-800 hover:bg-yellow-500 hover:text-nature-900 rounded-lg flex items-center justify-center transition border border-nature-700 text-yellow-400"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" class="w-10 h-10 bg-nature-800 hover:bg-yellow-500 hover:text-nature-900 rounded-lg flex items-center justify-center transition border border-nature-700 text-yellow-400"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" class="w-10 h-10 bg-nature-800 hover:bg-yellow-500 hover:text-nature-900 rounded-lg flex items-center justify-center transition border border-nature-700 text-yellow-400"><i class="fa-brands fa-whatsapp"></i></a>
+                    </div>
+                </div>
+
+                <!-- Formulário de Reserva -->
+                <div class="bg-white text-gray-800 rounded-3xl p-8 sm:p-10 shadow-2xl">
+                    <h3 class="font-serif text-2xl font-bold text-nature-900 mb-6">Solicitar Orçamento / Reserva</h3>
+                    
+                    <form id="reservation-form" onsubmit="handleFormSubmit(event)" class="space-y-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Seu Nome Completo</label>
+                            <input type="text" required class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-nature-600 focus:outline-none transition" placeholder="Ex: João da Silva">
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">WhatsApp / Telefone</label>
+                                <input type="tel" required class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-nature-600 focus:outline-none transition" placeholder="(44) 99999-9999">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Data Pretendida</label>
+                                <input type="date" required class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-nature-600 focus:outline-none transition">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Tipo de Evento / Interesse</label>
+                            <select class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-nature-600 focus:outline-none transition">
+                                <option>Fim de Semana / Diária</option>
+                                <option>Confraternização / Aniversário</option>
+                                <option>Evento Familiar</option>
+                                <option>Outros</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Mensagem ou Observações</label>
+                            <textarea rows="3" class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-nature-600 focus:outline-none transition" placeholder="Número aproximado de pessoas, horários, etc..."></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full bg-nature-700 hover:bg-nature-800 text-white font-semibold py-4 rounded-xl shadow-lg transition transform hover:-translate-y-0.5">
+                            Enviar Solicitação via WhatsApp
+                        </button>
+                    </form>
+
+                    <!-- Success Feedback Box (Hidden by default) -->
+                    <div id="success-box" class="hidden mt-4 p-4 bg-green-50 border border-green-200 text-green-800 rounded-xl text-center">
+                        <i class="fa-solid fa-circle-check text-green-600 text-xl mb-1 block"></i>
+                        <strong>Solicitação enviada com sucesso!</strong> Entraremos em contato em breve.
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Rodapé -->
+    <footer class="bg-nature-950 text-gray-400 py-8 px-4 border-t border-nature-900 text-center text-sm">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div class="flex items-center space-x-2">
+                <i class="fa-solid fa-tree text-yellow-400"></i>
+                <span class="text-white font-serif font-bold tracking-wide">Chácara da Pyssuta</span>
+            </div>
+            <p>&copy; 2026 Chácara da Pyssuta. Todos os direitos reservados.</p>
+            <p class="text-xs text-gray-500">Desenvolvido com sofisticação para momentos inesquecíveis.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Mobile Menu Toggle
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when clicking a link
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Navbar shadow on scroll
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('shadow-2xl', 'bg-nature-900/95');
+            } else {
+                navbar.classList.remove('shadow-2xl');
+            }
+        });
+
+        // Form Submission handler
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            const successBox = document.getElementById('success-box');
+            successBox.classList.remove('hidden');
+            document.getElementById('reservation-form').reset();
+            setTimeout(() => {
+                successBox.classList.add('hidden');
+            }, 6000);
+        }
+    </script>
+</body>
+</html>
