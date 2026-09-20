@@ -144,7 +144,7 @@
                 <p class="text-gray-600 leading-relaxed">
                     Seja para celebrar um aniversário especial, reunir a família em um fim de semana inesquecível ou realizar uma confraternização corporativa, nossa infraestrutura está pronta para atender com total comodidade e segurança.
                 </p>
-                
+
                 <div class="grid grid-cols-2 gap-6 pt-4">
                     <div class="bg-white p-5 rounded-2xl shadow-sm border border-gray-100">
                         <div class="text-3xl font-bold text-nature-700 font-serif mb-1">1.000 m²</div>
@@ -285,10 +285,10 @@
     <!-- Seção Contato / Reservas -->
     <section id="contato" class="py-20 bg-nature-900 text-white px-4 sm:px-6 lg:px-8 relative overflow-hidden">
         <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#e5ede5_1px,transparent_1px)] [background-size:16px_16px]"></div>
-        
+
         <div class="max-w-7xl mx-auto relative z-10">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                
+
                 <!-- Informações de Contato -->
                 <div class="space-y-8">
                     <div>
@@ -342,7 +342,7 @@
                 <!-- Formulário de Reserva -->
                 <div class="bg-white text-gray-800 rounded-3xl p-8 sm:p-10 shadow-2xl">
                     <h3 class="font-serif text-2xl font-bold text-nature-900 mb-6">Solicitar Orçamento / Reserva</h3>
-                    
+
                     <form id="reservation-form" onsubmit="handleWhatsAppSubmit(event)" class="space-y-4">
                         <div>
                             <label class="block text-sm font-medium text-gray-700 mb-1">Seu Nome Completo</label>
@@ -441,18 +441,44 @@
             }
         });
 
-        // WhatsApp Submission handler
+        // Funções auxiliares de formatação
+        function formatarData(dataStr) {
+            if (!dataStr) return '';
+            const partes = dataStr.split('-');
+            if (partes.length === 3) {
+                return `${partes[2]}/${partes[1]}/${partes[0]}`;
+            }
+            return dataStr;
+        }
+
+        function formatarTelefone(tel) {
+            if (!tel) return '';
+            const apenasNumeros = tel.replace(/\D/g, '');
+            if (apenasNumeros.length === 11) {
+                return apenasNumeros.replace(/^(\d{2})(\d{5})(\d{4})$/, '($1) $2-$3');
+            } else if (apenasNumeros.length === 10) {
+                return apenasNumeros.replace(/^(\d{2})(\d{4})(\d{4})$/, '($1) $2-$3');
+            }
+            return tel;
+        }
+
+        // WhatsApp Submission handler com formatação aplicada
         function handleWhatsAppSubmit(event) {
             event.preventDefault();
 
             // Captura dos valores do formulário
             const name = document.getElementById('form-name').value.trim();
-            const phone = document.getElementById('form-phone').value.trim();
+            const rawPhone = document.getElementById('form-phone').value.trim();
             const guests = document.getElementById('form-guests').value.trim();
-            const checkin = document.getElementById('form-checkin').value.trim();
-            const checkout = document.getElementById('form-checkout').value.trim();
+            const rawCheckin = document.getElementById('form-checkin').value.trim();
+            const rawCheckout = document.getElementById('form-checkout').value.trim();
             const eventType = document.getElementById('form-event-type').value;
             const message = document.getElementById('form-message').value.trim();
+
+            // Aplicando a formatação solicitada
+            const phone = formatarTelefone(rawPhone);
+            const checkin = formatarData(rawCheckin);
+            const checkout = formatarData(rawCheckout);
 
             // Formatação da mensagem para o WhatsApp
             const text = `*Olá, Chácara da Pyssuta!* Gostaria de solicitar um orçamento/reserva:
@@ -465,7 +491,7 @@
 *Tipo de Evento:* ${eventType}
 ${message ? `*Observações:* ${message}` : ''}`;
 
-            // Número do WhatsApp da chácara (exemplo com DDD 44)
+            // Número do WhatsApp da chácara
             const whatsappNumber = "5543999170317";
 
             // Codifica a mensagem para URL
